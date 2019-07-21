@@ -151,7 +151,6 @@ class PostController extends Controller
 
 
         //create posts
-        $data = [];
         $post = Post::find($id);
         $post->title = $request->input('title');
         $post->body = $request->input('body');
