@@ -10,6 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+// index for vue
+Route::get('/home', 'api\PageController@index');
 
 Route::get('/', 'PagesController@index');
 Route::get('/about', 'PagesController@about');

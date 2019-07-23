@@ -1,5 +1,5 @@
 
-      <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+      <nav class="navbar navbar-expand-md navbar-light bg-white shadow-lg mb-3">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -15,6 +15,7 @@
                             <a class="p-2 text-dark" href="/about">About</a>
                             <a class="p-2 text-dark" href="/services">Services</a>
                             <a class="p-2 text-dark" href="/posts">Blog</a>
+                            <a class="p-2" style="color: #3490dc" href="/home">VUE.js <small>version</small> </a>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

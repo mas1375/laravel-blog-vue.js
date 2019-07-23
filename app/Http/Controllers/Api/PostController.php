@@ -18,7 +18,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::paginate(15);
+        $posts = Post::orderBy('created_at', 'desc')->paginate(5);
 
         return PostResources::collection($posts);
     }
@@ -32,8 +32,6 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $post = $request->isMethod('put') ? Post::findOrFail($request->post_id) : new Post;
-
-        $post = $request->except('cover_image');
 
         if($request->hasFile('cover_image')){
 
@@ -53,8 +51,17 @@ class PostController extends Controller
             $post->cover_image = $fileNameToStore;
          }else{
             $fileNameToStore = 'noimage.jpg';
+            $post->cover_image = $fileNameToStore;
          }
 
+         if($request->has('user_id')){
+            $post->user_id = $request->input('user_id');
+         }else {
+            $post->user_id = 0;
+         }
+         $post->title = $request->input('title');
+         $post->body = $request->input('body');
+        //  return $post;
         if($post->save()){
             return new PostResources($post);
         }
@@ -69,7 +76,7 @@ class PostController extends Controller
     public function show($id)
     {
         $post = Post::findOrFail($id);
-        
+
         return  new PostResources($post);
     }
 

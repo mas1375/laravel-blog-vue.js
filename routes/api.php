@@ -18,16 +18,16 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 // list Posts
-Route::get('posts' , 'Api\PostController@index');
+Route::get('/posts' , 'Api\PostController@index');
 
 // list Single Post
-Route::get('post/{id}' , 'Api\PostController@show');
+Route::get('/post/{id}' , 'Api\PostController@show');
 
 // Create New Post
-Route::post('post' , 'Api\PostController@store');
+Route::post('/post' , 'Api\PostController@store');
 
 // Update Post
-Route::put('post' , 'Api\PostController@store');
+Route::put('/post' , 'Api\PostController@store');
 
 // Delete Post
-Route::delete('post/{id}' , 'Api\PostController@destroy');
+Route::delete('/post/{id}' , 'Api\PostController@destroy');
